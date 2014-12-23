@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
+    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );    
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
