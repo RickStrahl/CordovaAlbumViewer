@@ -117,7 +117,8 @@
     <Content Include="app\js\app.js" />
     <Content Include="app\js\artistController.js" />
     <Content Include="app\js\artistsController.js" />
-    <Content Include="app\js\BogusHeaderController.js" />
+    <Content Include="app\js\artistServiceLocal.js" />
+    <Content Include="app\js\headerXController.js" />
     <Content Include="app\views\about.html" />
     <Content Include="app\views\album.html" />
     <Content Include="app\views\albums.html" />
@@ -147,7 +148,11 @@
     <Content Include="css\musicstore.min.css" />
     <Content Include="data\albums.js" />
     <Content Include="data\artists.js" />
+    <Content Include="file.txt" />
+    <Content Include="images\artists.png" />
+    <Content Include="images\artists32.png" />
     <Content Include="images\headphone-head.png" />
+    <Content Include="images\record.png" />
     <Content Include="plugins\org.apache.cordova.console\.fetch.json" />
     <Content Include="plugins\org.apache.cordova.console\CONTRIBUTING.md" />
     <Content Include="plugins\org.apache.cordova.console\doc\de\index.md" />
