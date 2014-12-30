@@ -7,3 +7,5 @@ This project is a sample application for the following CODE Magazine article:
 The sample application is a small Album Viewer that lets you browse and edit a number of music albums interactively. Data is local and on device only to make it easy to run the app and play without without having to configure external services.
 
 ![](AlbumViewer.png)
+
+![](AlbumViewerIPad.png)
