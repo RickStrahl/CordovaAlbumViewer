@@ -19,6 +19,13 @@ h3 {
     left: 8px;
     z-index: 100;
 }
+#TopMenu {
+}
+    #TopMenu input {
+        color: #535353;
+        padding: 4px 5px;
+        height: auto;
+    }
 .banner {
     background: #535353;
     color: #e1e1e1;
@@ -263,4 +270,7 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
    -webkit-animation: slideOutLeft 0.35s both ease-in;
     animation: slideOutLeft 0.35s both ease-in;
     z-index: 8888;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

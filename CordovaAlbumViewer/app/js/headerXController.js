@@ -13,6 +13,7 @@
         var vm = $scope; // straight $scope controller
 
         vm.searchText = "";
+        vm.searchAllowed = false;
         vm.searchVisible = false;
 
         vm.activeTab = albumService.activeTab;
@@ -21,9 +22,16 @@
         vm.onKey = function() {
             $scope.$emit('onsearchkey', vm.searchText);
         }
+        vm.showSearch = function() {
+            vm.searchVisible = true;
+        }
+        vm.hideSearch = function() {
+            vm.searchVisible = false;
+        }
 
         $scope.searchBlur = function() {
-            vm.searchText = "search";
+            vm.searchText = "";
+            vm.searchVisible = false;
         }
 
         vm.$on("$locationChangeSuccess", function() {
@@ -38,10 +46,10 @@
 
             if (tab == "albums" ||
                 tab == "artists")
-                vm.searchVisible = true;
+                vm.searchAllowed = true;
             else
-                vm.searchVisible = false;
-            console.log(vm.searchVisible);
+                vm.searchAllowed = false;
+            console.log(vm.searchAllowed);
         }
 
         return;

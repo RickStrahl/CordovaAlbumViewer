@@ -71,7 +71,7 @@
             return $http.get(service.baseUrl + "albums.js")
                 .success(function (data) {
                     service.albums = data;
-                    localStorage.setItem("av_albums",JSON.serialize(service.albums));
+                    //localStorage.setItem("av_albums",JSON.serialize(service.albums));
                 })
                 .error(onPageError);
         }

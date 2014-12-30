@@ -52,23 +52,26 @@
         </a>
     </div>
 
-    <div class="banner" ng-controller="headerController">
+    <div class="banner" ng-controller="headerController" ng-cloak>
         <nav id="TopMenu" class="pull-right">
-            <form style="float: left; width: 150px; padding-top: 3px;">
+            <form style="float: left; width: 120px; padding-top: 2px;">
                 <input id="SearchBox" type="text"
                        class="form-control" placeholder="Search..."
                        ng-model="searchText"
-                       ng-keyup="onKey()" ng-blur="searchBlur()" style="display: none;">
+                       ng-keyup="onKey()"
+                       ng-blur="searchBlur()"
+                       ng-hide="!searchAllowed || !searchVisible"
+                      >
             </form>
-            <a href="javascript: window.location.reload();" ng-class="{ selected: activeTab == 'about'}"><i class=" fa fa-search" title="Search" style="font-size: 135%"></i></a>
-            <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}"><img src="images/record.png" title="Albums" style="height: 20px; vertical-align: top;" /> <span>Albums</span></a>
-            <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}"><img src="images/artists32.png" title="Artists" style="height: 20px" /> <span>Artists</span></a>
+            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed"><i class=" fa fa-search" title="Search" style="font-size: 135%"></i> <span>Search</span></a>
+            <a href="#/albums" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'albums'}"><img src="images/record.png" title="Albums" style="height: 20px; vertical-align: top;" /> <span>Albums</span></a>
+            <a href="#/artists" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'artists'}"><img src="images/artists32.png" title="Artists" style="height: 20px" /> <span>Artists</span></a>
             <!--<a href="javascript: window.location.reload();" ng-class="{ selected: activeTab == 'about'}"><i class=" fa fa-info-circle" title="About" style="font-size: 165%;vertical-align: bottom"></i> <span>About</span></a>-->
         </nav>
 
     </div>
 
-    <div class="ng-cloak" style="margin-top: 72px; padding: 1px;">
+    <div ng-cloak style="margin-top: 72px; padding: 1px;">
         <div id="MainView" autoscroll="true"
              ng-view>
         </div>
