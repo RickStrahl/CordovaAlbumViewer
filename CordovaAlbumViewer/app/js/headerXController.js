@@ -1,4 +1,7 @@
-﻿(function() {
+﻿// the funky name is on purpose:
+// For some reason Cordova chokes on headercontroller.js 
+// and fails to compile it into the output. So renamed to headerXController.js
+(function () {
     'use strict';
 
     angular
@@ -24,6 +27,7 @@
         }
         vm.showSearch = function() {
             vm.searchVisible = true;
+            setTimeout(function() { $("#SearchBox").focus(); },5 );
         }
         vm.hideSearch = function() {
             vm.searchVisible = false;
