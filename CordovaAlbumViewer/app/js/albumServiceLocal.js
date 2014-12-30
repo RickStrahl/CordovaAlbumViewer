@@ -1,11 +1,13 @@
+/// albumService
 (function () {
     'use strict';
-
+    
     angular
         .module('app')
         .factory('albumServiceLocal', albumServiceLocal);
 
     albumServiceLocal.$inject = ['$http','$q'];
+    
 
     function albumServiceLocal($http,$q) {
         var service = {
@@ -49,18 +51,31 @@
             };
         }
 
+        /// noCache: Not passed or 0: allow cache, 
+        //          1 - no cache from memory,
+        //          2 - re-read from disk
         function getAlbums(noCache) {
+            noCache = noCache || 0;
+
             // if albums exist just return
             if (!noCache && service.albums && service.albums.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.albums);
 
+            // check localStorage first
+            if (noCache != 2) {
+                service.albums = localStorage.getItem("av_albums");
+                if (service.albums && service.albums.length > 0)
+                    return ww.angular.$httpPromiseFromValue($q, JSON.parse(service.albums));
+            }
+
             return $http.get(service.baseUrl + "albums.js")
                 .success(function (data) {
                     service.albums = data;
+                    localStorage.setItem("av_albums",JSON.serialize(service.albums));
                 })
                 .error(onPageError);
         }
-
+        
         function getAlbum(id, useExisting) {
             if (id === 0 || id === '0') {
                 service.album = service.newAlbum();

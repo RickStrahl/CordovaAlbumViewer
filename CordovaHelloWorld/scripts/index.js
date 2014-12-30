@@ -3,8 +3,8 @@
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
 (function() {
-    "use strict";
-
+    "use strict";    
+    
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
@@ -13,6 +13,7 @@
 
         console.log("Device ready...");
         console.log(navigator.userAgent);
+
         start(); // User Code
     };
 
@@ -25,13 +26,17 @@
     };
 
     function start() {
+        
         var name = document.getElementById("Name");
         var message = document.getElementById("Message");
 
         name.addEventListener("keyup", function() {
             var ua = navigator.userAgent;
+            writeLog(name.value);
             console.log(ua);
             message.innerText = name.value;
         });
+
+        
     }
 })();
