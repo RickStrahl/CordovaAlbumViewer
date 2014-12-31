@@ -1,11 +1,16 @@
 ﻿(function() {
     'use strict';
 
-    angular
+    var app = angular
         .module('app')
         .controller('artistsController', artistsController);
 
-    artistsController.$inject = ["$scope", "$http","artistServiceLocal"];
+    if(app.configuration.useLocalData)
+        artistsController.$inject = ["$scope", "$http", "artistServiceLocal"];
+    else
+        artistsController.$inject = ["$scope", "$http", "artistService"];
+
+
 
     function artistsController($scope, $http, artistService) {
         console.log('artists controller');
