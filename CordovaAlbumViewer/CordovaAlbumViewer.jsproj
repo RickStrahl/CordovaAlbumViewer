@@ -148,6 +148,7 @@
     <Content Include="css\musicstore.min.css" />
     <Content Include="data\albums.js" />
     <Content Include="data\artists.js" />
+    <Content Include="file.txt" />
     <Content Include="images\artists.png" />
     <Content Include="images\artists32.png" />
     <Content Include="images\headphone-head.png" />

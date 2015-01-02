@@ -19,27 +19,41 @@
         vm.error = {
             message: null,
             icon: "warning",
-            reset: function () { vm.error = { message: "", icon: "warning" } }
-        };
+            reset: function () { vm.error = { message: "", icon: "warning" } },
+            error: function(message, icon) {
+                vm.error.reset();
+                vm.error.message = message;
+                if (!icon)
+                    icon = "error";
 
+                vm.icon = icon;
+            },
+            info: function(message, icon) {
+                vm.error.reset();
+                vm.error.message = message;
+                if (!icon)
+                    icon = "info";
+                vm.icon = icon;
+            }
+        };
 
         // filled view event emit from root form
         vm.searchText = '';
 
         vm.artistpk = 0;
 
-        vm.albumClick = function(album) {
-            window.location = "#/album/" + album.Id;
-        };
         vm.getAlbums = function() {
-            albumService.getAlbums() 
+            albumService.getAlbums()
                 .success(function(data) {
                     vm.albums = data;
                 })
                 .error(function(err) {
-                    alert('failed to get albums');
-                });            
-        }
+                    vm.error.error(err.message);
+                });
+        };
+        vm.albumClick = function (album) {            
+            window.location = "#/album/" + album.Id;
+        };
         vm.addAlbum = function () {            
             albumService.album = albumService.newAlbum();
             albumService.updateAlbum(albumService.album);
@@ -67,6 +81,7 @@
 
             return false;
         };
+
 
         // forwarded from Header controller
         $scope.$root.$on('onsearchkey', function (e,searchText) {

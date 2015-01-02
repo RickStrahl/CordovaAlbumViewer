@@ -13,7 +13,7 @@
 
     function albumController($routeParams,$window,$animate,albumService) {        
         var vm = this;
-
+        
         vm.album = null;
         vm.selectedArtist = { ArtistName: null, Description: null };
         vm.error = {

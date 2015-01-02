@@ -56,7 +56,8 @@ dlldata.c
 *.pidb
 *.svclog
 *.scc
-[Tt]humbs.db
+Thumbs.db
+
 
 # Chutzpah Test files
 _Chutzpah*
