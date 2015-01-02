@@ -53,10 +53,15 @@ h3 {
 
     .banner nav a, .banner nav input {
         display: inline-block;
-        padding: 7px 5px;
+        padding: 8px 6px 6px;
         color: #e1e1e1;
         text-decoration: none;
     }
+     .banner nav a img {
+        height: 23px; 
+        vertical-align: top;
+    }
+
 
     .banner nav a:hover {
         color: white;

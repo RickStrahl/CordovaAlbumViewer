@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -34,11 +34,11 @@
                 });
         };
 
-        vm.saveArtist = function(artist) {
-            $http.post(vm.baseUrl + "artist/", artist)
-                .success(function (response) {
-                    vm.artist = response.Artist;
-                    vm.albums = response.Albums;
+        vm.saveArtist = function (artist) {            
+            artistService.saveArtist(artist)
+                .success(function (artist) {                    
+                    vm.artist = artist;
+                    vm.albums = [];
                     $("#EditModal").modal("hide");
                 })
                 .error(function (error) {

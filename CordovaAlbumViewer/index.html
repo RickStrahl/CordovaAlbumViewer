@@ -63,9 +63,18 @@
                        ng-hide="!searchAllowed || !searchVisible"
                       >
             </form>
-            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed"><i class=" fa fa-search" title="Search" style="font-size: 135%"></i> <span>Search</span></a>
-            <a href="#/albums" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'albums'}"><img src="images/record.png" title="Albums" style="height: 20px; vertical-align: top;" /> <span>Albums</span></a>
-            <a href="#/artists" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'artists'}"><img src="images/artists32.png" title="Artists" style="height: 20px" /> <span>Artists</span></a>
+            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
+                <img src="images/search.png" /> <span>Search</span>
+            </a>
+            <a href="#/albums" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums" /> <span>Albums</span>
+            </a>
+            <a href="#/artists" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists"/> <span>Artists</span>
+            </a>
+            <a href="#/options" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'options'}">
+                <img src="images/gear.png" title="Options" /> <span>Options</span>
+            </a>
             <!--<a href="javascript: window.location.reload();" ng-class="{ selected: activeTab == 'about'}"><i class=" fa fa-info-circle" title="About" style="font-size: 165%;vertical-align: bottom"></i> <span>About</span></a>-->
         </nav>
 
@@ -148,6 +157,7 @@
     <script src="app/js/albumController.js"></script>
     <script src="app/js/artistController.js"></script>
     <script src="app/js/artistsController.js"></script>
+    <script src="app/js/optionsController.js"></script>
 
 </body>
 </html>
