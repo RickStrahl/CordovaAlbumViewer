@@ -14,7 +14,7 @@ h3 {
     color: steelblue;
 }
 #TitleBar {
-    position: fixed;
+    position: absolute;
     top: 18px;
     left: 8px;
     z-index: 11;
@@ -65,11 +65,11 @@ h3 {
 .banner nav {
     display: inline-block;    
     margin-right: 3px;
-    padding: 0;    
+    padding: 4px;    
 }
     .banner nav a, .banner nav input {
         display: inline-block;
-        padding: 8px 6px 6px;
+        padding: 6px 6px 6px;
         color: #e1e1e1;
         text-decoration: none;
     }
@@ -100,7 +100,7 @@ h3 {
     top: auto;
     text-align: center;
     padding-top: inherit;      
-    height: 40px;
+    height: 43px;
     display: none;
 }
   .banner-bottom a {
@@ -238,32 +238,14 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         display: block;
     }
     #MainView {
-        bottom: 40px;
+        bottom: 43px;
     }
 }
 
-
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-   border-bottom: solid 2px transparent;
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a:hover {
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-    color: white;
-    background: #535353 !important;
-    border-bottom: solid 2px darkorange;
-    border-radius: 2px;
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a.selected {
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-    color: white;
-    background: #535353 !important;
-        border-bottom: solid 2px orange;
-    border-radius: 2px;
-}
 .modal {
-    z-index: 1040;
-    top: 0px;
     position: absolute;
+    top: 0;
+    z-index: 1040;        
 }
 .modal-dialog {
     margin: 2px auto;   
