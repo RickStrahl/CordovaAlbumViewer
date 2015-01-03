@@ -5,11 +5,11 @@
         .module('app')
         .controller('optionsController', optionsController);
 
-    optionsController.$inject = [ "artistServiceLocal","albumServiceLocal"];
+    optionsController.$inject = [ "$animate", "artistServiceLocal","albumServiceLocal"];
 
 
 
-    function optionsController(artistService, albumService) {
+    function optionsController($animate, artistService, albumService) {
         console.log('options controller');
 
         var vm = this; // controller as
@@ -27,5 +27,7 @@
             vm.error.icon = "info";
         }
 
+        // force explicit animation of the view and edit forms always
+        //$animate.addClass("#MainView", "slide-animation");
     }
 })();

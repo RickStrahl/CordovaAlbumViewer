@@ -156,7 +156,6 @@
     <Content Include="images\headphone-head.png" />
     <Content Include="images\record.png" />
     <Content Include="images\search.png" />
-    <Content Include="page.html" />
     <Content Include="plugins\org.apache.cordova.statusbar\.fetch.json" />
     <Content Include="plugins\org.apache.cordova.statusbar\CONTRIBUTING.md" />
     <Content Include="plugins\org.apache.cordova.statusbar\doc\de\index.md" />

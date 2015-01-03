@@ -63,6 +63,6 @@
         vm.getArtist($routeParams.artistId);
 
         // force explicit animation of the view and edit forms always
-        $animate.addClass("#MainView", "slide-animation");
+        //$animate.addClass("#MainView", "slide-animation");
     }
 })();

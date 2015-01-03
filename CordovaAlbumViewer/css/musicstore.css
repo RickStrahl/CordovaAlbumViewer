@@ -1,5 +1,5 @@
 body {
-       
+    overflow-x: hidden;
 }
 .page-header-text{
     font-size: 1.8em;
@@ -17,14 +17,31 @@ h3 {
     position: fixed;
     top: 18px;
     left: 8px;
-    z-index: 100;
+    z-index: 11;
+}
+#Toolbar {
+    display: none;   
+}
+#Toolbar-Top {    
 }
 #TopMenu {
 }
+
     #TopMenu input {
         color: #535353;
         padding: 4px 5px;
         height: auto;
+    }
+    #MainView {
+        position: absolute;
+        left: 0;
+        top: 58px;
+        bottom: 0;
+        width:100%;
+        z-index: 11;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;  
     }
 .banner {
     background: #535353;
@@ -38,6 +55,7 @@ h3 {
     width: 100%;
     z-index: 10;   
 }
+
     .banner.active {
         color: white;
         font-weight: bolder;
@@ -45,12 +63,10 @@ h3 {
 
 
 .banner nav {
-    display: inline-block;
-    margin-top: 2px;
+    display: inline-block;    
     margin-right: 3px;
     padding: 0;    
 }
-
     .banner nav a, .banner nav input {
         display: inline-block;
         padding: 8px 6px 6px;
@@ -71,12 +87,26 @@ h3 {
         border-radius: 2px;
     }
 
-    .banner nav a.active, .banner nav a.selected {
+    .banner nav a.active, .banner nav a.selected   
+     {
         color: white;        
         font-weight: bold;
         border-bottom: solid 4px orange;
         border-radius: 2px;
     }
+  .banner-bottom {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    text-align: center;
+    padding-top: inherit;      
+    height: 40px;
+    display: none;
+}
+  .banner-bottom a {
+        margin: 0 30px; 
+    }
+
     @media(max-width: 640px) {
         .banner nav a span {
             display: none;
@@ -109,7 +139,7 @@ h3 {
         position: relative;
         float: right;
         background: #034e8d;
-        color: #whitesmoke;        
+        color: whitesmoke;        
         padding: 5px;        
         min-width: 40px;
         display: none;
@@ -198,6 +228,18 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         min-height: 100px;
     }
 
+    #Toolbar-Top {
+        display: none;
+    }
+    #Toolbar {
+        display: block;
+    }
+    .banner-bottom {
+        display: block;
+    }
+    #MainView {
+        bottom: 40px;
+    }
 }
 
 
@@ -218,8 +260,13 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         border-bottom: solid 2px orange;
     border-radius: 2px;
 }
+.modal {
+    z-index: 1040;
+    top: 0px;
+    position: absolute;
+}
 .modal-dialog {
-    margin: 30px 10px;
+    margin: 2px auto;   
 }
 .modal-header {
     padding: 15px 15px 5px;
@@ -268,13 +315,23 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
 .slide-animation.ng-enter {
     -webkit-animation: slideInRight 0.70s both ease-in;
     animation: slideInRight 0.70s both ease-in;
-    z-index: 9999;    
+    z-index: 1001;    
 }
+.slide-animation.ng-enter-stagger {
+  /* 200ms will be applied between each sucessive enter operation */ 
+  -webkit-transition-delay:0.2s;
+  transition-delay:0.7s;
+
+  /* this is here to avoid accidental CSS inheritance */
+  -webkit-transition-duration:0;
+  transition-duration:0;
+}
+
 
 .slide-animation.ng-leave {
    -webkit-animation: slideOutLeft 0.35s both ease-in;
     animation: slideOutLeft 0.35s both ease-in;
-    z-index: 8888;
+    z-index: 1000;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
