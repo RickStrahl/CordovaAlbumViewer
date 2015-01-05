@@ -104,7 +104,7 @@ h3 {
     display: none;
 }
   .banner-bottom a {
-        margin: 0 30px; 
+        margin: 0 20px;      
     }
 
     @media(max-width: 640px) {
