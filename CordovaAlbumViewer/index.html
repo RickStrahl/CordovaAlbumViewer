@@ -81,7 +81,7 @@
 
 
     <div id="MainView" autoscroll="true" ng-cloak
-         style="width: 100%; padding-top: 10px;" class="slide-animation"
+         style="width: 100%; padding-top: 10px;" class="not-slide-animation"
          ng-view>
     </div>
 
@@ -103,7 +103,7 @@
             // only use FastClick for iOS
             //if (navigator.userAgent.indexOf('iPhone') ||
             //    navigator.userAgent.indexOf('iPad'))
-                FastClick.attach(document.body);
+            //FastClick.attach(document.body);
         }, false);
 
         // enable animations on all screens for small screen sizes
