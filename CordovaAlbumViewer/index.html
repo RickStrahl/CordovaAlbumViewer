@@ -36,54 +36,56 @@
         </a>
     </div>
 
-    <div ng-controller="headerController" ng-cloak>
-        <div class="banner">
-            <nav id="Toolbar-Top" class="pull-right">
-                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>
-            <nav id="TopMenu" class="pull-right">
-                <form style="float: left; width: 140px; padding-top: 2px;">
-                    <input id="SearchBox" type="text"
-                           class="form-control" placeholder="Search..."
-                           ng-model="searchText"
-                           ng-keyup="onKey()"
-                           ng-blur="searchBlur()"
-                           ng-hide="!searchAllowed || !searchVisible">
-                </form>
-                <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
-                    <img src="images/search.png"/> <span>Search</span>
-                </a>
-            </nav>
-
-        </div>
-        <div class="banner banner-bottom">
-            <nav id="Toolbar">
-                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>
-        </div>
+<div ng-controller="headerController" ng-cloak 
+     style="margin: 0; padding: 0; border: none;">
+    <div class="banner">
+        <nav id="Toolbar-Top" class="pull-right">
+            <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums"/> <span>Albums</span>
+            </a>
+            <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists"/> <span>Artists</span>
+            </a>
+            <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                <img src="images/gear.png" title="Options"/> <span>Options</span>
+            </a>
+        </nav>
+        <nav id="TopMenu" class="pull-right">
+            <form style="float: left; width: 140px; padding-top: 2px;">
+                <input id="SearchBox" type="text"
+                       class="form-control" placeholder="Search..."
+                       ng-model="searchText"
+                       ng-keyup="onKey()"
+                       ng-blur="searchBlur()"
+                       ng-hide="!searchAllowed || !searchVisible">
+            </form>
+            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
+                <img src="images/search.png"/> <span>Search</span>
+            </a>
+        </nav>
     </div>
-
 
     <div id="MainView" autoscroll="true" ng-cloak
-         style="width: 100%; padding-top: 10px;" class="not-slide-animation"
+         style="width: 100%; padding-top: 10px;" xclass="slide-animation"
          ng-view>
     </div>
+
+
+    <div class="banner banner-bottom">
+        <nav id="Toolbar">
+            <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums"/> <span>Albums</span>
+            </a>
+            <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists"/> <span>Artists</span>
+            </a>
+            <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                <img src="images/gear.png" title="Options"/> <span>Options</span>
+            </a>
+        </nav>
+    </div>
+</div>
+
 
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
@@ -103,17 +105,8 @@
             // only use FastClick for iOS
             //if (navigator.userAgent.indexOf('iPhone') ||
             //    navigator.userAgent.indexOf('iPad'))
-            //FastClick.attach(document.body);
+            FastClick.attach(document.body);
         }, false);
-
-        // enable animations on all screens for small screen sizes
-        //var width = $(window).width();
-        //if (width < 769)
-        //    // make every animation a slide animation
-        //    // otherwise only view/edit are
-        //    $("#MainView").addClass("slide-animation");
-
-     
     </script>
 
     <!--<script src="js/angular-concat.min.js"></script>-->

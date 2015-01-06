@@ -294,14 +294,23 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     }
 }
 
-.slide-animation.ng-enter {
-    -webkit-animation: slideInRight 0.70s both ease-in;
-    animation: slideInRight 0.70s both ease-in;
-    z-index: 1001;    
+.slide-animation {
+    left: 0;   
+    -webkit-transition: left 1s ease;    
+    transition: all 1s ease;
+}
+.slide-animation.ng-leave-active  {
+    left: -100% !important;    
+
+}
+.slide-animation.ng-enter  {
+    left: 100% !important;
+    -webkit-transition: none;
+    transition: none;
 }
 .slide-animation.ng-enter-stagger {
   /* 200ms will be applied between each sucessive enter operation */ 
-  -webkit-transition-delay:0.2s;
+  -webkit-transition-delay:0.7s;
   transition-delay:0.7s;
 
   /* this is here to avoid accidental CSS inheritance */
@@ -310,11 +319,7 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
 }
 
 
-.slide-animation.ng-leave {
-   -webkit-animation: slideOutLeft 0.35s both ease-in;
-    animation: slideOutLeft 0.35s both ease-in;
-    z-index: 1000;
-}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
