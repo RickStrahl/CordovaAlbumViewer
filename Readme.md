@@ -2,7 +2,7 @@
 
 This project is a sample application for the following CODE Magazine article:
 
-**Taming Mobile Apps with Cordova and Visual Studio** (not out yet)
+**[Taming Mobile Apps with Cordova and Visual Studio](http://weblog.west-wind.com/posts/2015/Mar/04/Cordova-and-Visual-Studio-CODE-Magazine-Article)**
 
 and blog post:
 
