@@ -6,12 +6,13 @@
         .module('app')
         .controller('albumsController', albumsController);
 
-    if (!app.configuration.useLocalData)
-       albumsController.$inject = ['$scope', 'albumService'];
-    else
-        albumsController.$inject = ['$scope','albumServiceLocal'];
+    var service = 'albumService';
+    if (app.configuration.useLocalData)
+        service = 'albumServiceLocal';
 
-    function albumsController($scope,  albumService) {                
+    albumsController.$inject = ['$scope', '$timeout', '$animate', service];
+    
+    function albumsController($scope, $timeout, $animate, albumService) {                
         console.log("albums controller accessed.");
         var vm = this;
         vm.albums = null;
@@ -42,16 +43,29 @@
 
         vm.artistpk = 0;
 
-        vm.getAlbums = function() {
-            albumService.getAlbums()
-                .success(function(data) {
-                    vm.albums = data;
-                })
-                .error(function(err) {
-                    vm.error.error(err.message);
-                });
-        };
-        vm.albumClick = function (album) {            
+    vm.getAlbums = function() {
+        albumService.getAlbums()
+            .success(function (data) {
+                vm.albums = data;                    
+                setTimeout(function () {                        
+                    if (albumService.listScrollPos) {
+                        var el = $("#MainView");
+                        el.scrollTop(albumService.listScrollPos);
+                        albumService.listScrollPos = 0;
+                        setTimeout(function() {
+                            var t = el[0].scrollHeight;
+                        });
+
+                    }
+                }, 1); // delay around animation 900
+            })
+            .error(function(err) {
+                vm.error.error(err.message);
+            });
+    };
+        vm.albumClick = function (album) {
+            albumService.listScrollPos = $("#MainView").scrollTop();
+            console.log("scroll set: ", albumService.listScrollPos);
             window.location = "#/album/" + album.Id;
         };
         vm.addAlbum = function () {            
@@ -82,7 +96,6 @@
             return false;
         };
 
-
         // forwarded from Header controller
         $scope.$root.$on('onsearchkey', function (e,searchText) {
             vm.searchText = searchText;            
@@ -91,7 +104,6 @@
         // controller initialization
         vm.getAlbums();
         
-
         return;
     }
 })();

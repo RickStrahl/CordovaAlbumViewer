@@ -7,7 +7,7 @@ body {
     color: steelblue;
 }
 h2,h3 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+    font-family: Trebuchet,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
     font-weight: bold;
 }
 h3 {
@@ -41,7 +41,10 @@ h3 {
         z-index: 11;
         overflow-x: hidden;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;  
+        -webkit-overflow-scrolling: touch;
+        padding-top: 10px; 
+        background: white;
+        overflow-x: hidden;
     }
 .banner {
     background: #535353;
@@ -122,7 +125,7 @@ h3 {
     height: 135px;
     overflow-y:hidden;
     float: left;
-    max-width: 300px;
+    max-width: 235px;
         
     transition: background linear 275ms;
     position: relative;
@@ -188,7 +191,7 @@ h3 {
 
 
 .album-image,.album-image-big {
-    width: 72px;
+    width: 55px;
     float: left;
     border-radius: 35px;
 }
@@ -202,6 +205,14 @@ h3 {
 @media(max-width: 768px){
     .album-image-big {
         margin-bottom: 10px;
+    }
+}
+@media(min-width: 960px) {
+    .album {
+        max-width: 32%;
+    }
+    .album-image {
+        width: 70px;
     }
 }
 
@@ -226,8 +237,10 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     .album {
         max-width: 100% !important;
         min-height: 100px;
+    }    
+    .album-image {
+        width: 70px;
     }
-
     #Toolbar-Top {
         display: none;
     }
@@ -257,29 +270,33 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     padding: 10px 20px 5px 20px;
 }
 
-
 @-webkit-keyframes slideOutLeft {    
-    to {
+     from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+     to {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }	
 }
 @keyframes slideOutLeft {
-
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
     to {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }
 }
-
-/* slide in from the bottom */
 @-webkit-keyframes slideInRight {
     from {
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
     }
     to {
-        -webkit-transform: translateX(0%);
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
@@ -289,34 +306,23 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         transform: translateX(100%);
     }
     to {
-        -webkit-transform: translateX(0%);
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
 
-.slide-animation {
-    left: 0;   
-    -webkit-transition: left 1s ease;    
-    transition: all 1s ease;
+.slide-animation.ng-enter {
+    -webkit-animation: slideInRight 0.50s both ease-in;
+    animation: slideInRight 0.50s both ease-in;
+    z-index: 9999;        
 }
-.slide-animation.ng-leave-active  {
-    left: -100% !important;    
 
+.slide-animation.ng-leave {
+   -webkit-animation: slideOutLeft 0.50s both ease-in;
+    animation: slideOutLeft 0.50s both ease-in;
+    z-index: 8888;
 }
-.slide-animation.ng-enter  {
-    left: 100% !important;
-    -webkit-transition: none;
-    transition: none;
-}
-.slide-animation.ng-enter-stagger {
-  /* 200ms will be applied between each sucessive enter operation */ 
-  -webkit-transition-delay:0.7s;
-  transition-delay:0.7s;
 
-  /* this is here to avoid accidental CSS inheritance */
-  -webkit-transition-duration:0;
-  transition-duration:0;
-}
 
 
 

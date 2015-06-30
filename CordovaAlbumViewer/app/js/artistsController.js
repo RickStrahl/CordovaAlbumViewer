@@ -5,14 +5,14 @@
         .module('app')
         .controller('artistsController', artistsController);
 
+    var service = "artistService";
     if(app.configuration.useLocalData)
-        artistsController.$inject = ["$scope", "$animate", "artistServiceLocal"];
-    else
-        artistsController.$inject = ["$scope", "$animate", "artistService"];
+        service = "artistServiceLocal";
 
+    artistsController.$inject = ["$scope", "$timeout" , service];
+    
 
-
-    function artistsController($scope, $animate,artistService) {
+    function artistsController($scope,$timeout, artistService) {
         console.log('artists controller');
 
         var vm = this; // controller as
@@ -20,10 +20,22 @@
         vm.searchText = "";
         vm.baseUrl = "data/";
 
+
+        vm.artistClick = function (artist) {
+            console.log('artistclick');
+            artistService.listScrollPos = $("#MainView").scrollTop();
+            window.location = "#/artist/" + artist.Id;
+        }
         vm.getArtists = function() {
             return artistService.getArtists()
                 .success(function(artists) {
                     vm.artists = artists;
+
+                    if (artistService.listScrollPos)
+                        $timeout(function () {
+                            $("#MainView").scrollTop(artistService.listScrollPos);
+                        }, 10);
+
                 });
         }
 

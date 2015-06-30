@@ -153,8 +153,9 @@
             updateArtist: updateArtist,
             saveArtist: saveArtist,
             deleteArtist: deleteArtist,
-            newArtist: newArtist
-        };
+            newArtist: newArtist,
+            listScrollPos: 0
+    };
         return service;
     }
 })();

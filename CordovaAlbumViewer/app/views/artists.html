@@ -10,7 +10,7 @@
 
         <a class="list-group-item"
            ng-repeat="artist in view.artists | filter: view.searchText "
-           ng-href="#/artist/{{artist.Id}}">
+           ng-click="view.artistClick(artist)">
             <span class="badge">{{artist.AlbumCount}}</span>
             {{artist.ArtistName}}
         </a>
