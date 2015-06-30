@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="touch-icon.png" />
+
+    <link rel="icon" href="touch-icon.png" />
+    <meta name="msapplication-TileImage" content="touch-icon.png">
+
+    <title>West Wind Album Viewer</title>    
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="css/musicstore.css" rel="stylesheet" />
+</head>
+<body ng-app="app">
+
+    <div id="TitleBar">
+        <a href="#/albums">
+            <img src="images/headphone-head.png"
+                 style="height: 35px; float: left" />
+            <div style="float: left; margin-left: 5px; line-height: 1.2">
+                <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">West Wind</i><br />
+                <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">AlbumViewer</i>
+            </div>
+        </a>
+    </div>
+
+<div ng-controller="headerController" ng-cloak 
+     style="margin: 0; padding: 0; border: none;">
+    <div class="banner">
+        <nav id="Toolbar-Top" class="pull-right">
+            <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums"/> <span>Albums</span>
+            </a>
+            <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists"/> <span>Artists</span>
+            </a>
+            <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                <img src="images/gear.png" title="Options"/> <span>Options</span>
+            </a>
+        </nav>
+        <nav id="TopMenu" class="pull-right">
+            <form style="float: left; width: 140px; padding-top: 2px;">
+                <input id="SearchBox" type="text"
+                       class="form-control" placeholder="Search..."
+                       ng-model="searchText"
+                       ng-keyup="onKey()"
+                       ng-blur="searchBlur()"
+                       ng-hide="!searchAllowed || !searchVisible">
+            </form>
+            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
+                <img src="images/search.png"/> <span>Search</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="MainView" autoscroll="true" ng-cloak         
+         xclass="xslide-animation"
+         ng-view>
+    </div>
+
+
+    <div class="banner banner-bottom">
+        <nav id="Toolbar">
+            <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums"/> <span>Albums</span>
+            </a>
+            <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists"/> <span>Artists</span>
+            </a>
+            <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                <img src="images/gear.png" title="Options"/> <span>Options</span>
+            </a>
+        </nav>
+    </div>
+</div>
+
+
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/ww.jquery.min.js"></script>
+    <script src="scripts/ww.angular.js"></script>
+    <script src="scripts/lodash.min.js"></script>
+
+    <script src="scripts/fastclick.min.js"></script>
+
+
+    <script>
+        // hook up fast click for mobile devices - avoid 300ms delay
+        window.addEventListener('load', function () {
+            // only use FastClick for iOS
+            //if (navigator.userAgent.indexOf('iPhone') ||
+            //    navigator.userAgent.indexOf('iPad'))
+            FastClick.attach(document.body);
+        }, false);
+    </script>
+
+    <!--<script src="js/angular-concat.min.js"></script>-->
+
+    <script src="scripts/angular/angular.min.js"></script>
+    <script src="scripts/angular/angular-route.min.js"></script>
+    <script src="scripts/angular/angular-animate.min.js"></script>
+    <script src="scripts/angular/angular-sanitize.min.js"></script>
+    <script src="scripts/angular/angular-touch.min.js"></script>
+
+
+    <!--<script src="../scripts/ww.angular.min.js"></script>-->
+    <script src="css/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap-typeahead.min.js"></script>
+
+    <!-- combined app scripts - build with gulp -->
+    <!--<script src="js/app.min.js"></script>-->
+
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/albumService.js"></script>
+    <script src="app/js/albumServiceLocal.js"></script>
+    <script src="app/js/artistServiceLocal.js"></script>
+
+    <!-- BUG: for some reason headerController DOES NOT GET COPIED! -->
+    <script src="app/js/headerXController.js"></script>
+
+    <script src="app/js/albumsController.js"></script>
+    <script src="app/js/albumController.js"></script>
+    <script src="app/js/artistController.js"></script>
+    <script src="app/js/artistsController.js"></script>
+    <script src="app/js/optionsController.js"></script>
+
+</body>
+</html>
