@@ -8,12 +8,13 @@ and blog post:
 
 **[Using Cordova and Visual Studio to build iOS Mobile Apps](http://weblog.west-wind.com/posts/2015/Jan/06/Using-Cordova-and-Visual-Studio-to-build-iOS-Mobile-Apps)**
 
+*The current version is built for Visual Studio 2015 RC - use the VS2013 CTP3 tag to use an earlier VS2013 version*
+
 The sample application is a small Album Viewer that lets you browse and edit a number of music albums interactively. Data is local and on device only to make it easy to run the app and play without without having to configure external services.
 
 ![](AlbumViewer.png)
 
 ![](AlbumViewerIPad.png)
-
 
 ### Sample Alert
 
